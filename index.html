@@ -6,71 +6,123 @@
 <title>Eaters Fish and Chicken</title>
 
 <style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:url('https://i.imgur.com/lNAJ1Cd.png');
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+
+body{
+background:url('https://i.imgur.com/lNAJ1Cd.png');
+color:#111;
+overflow-x:hidden;
 }
 
-.container {
-  padding:20px;
-  max-width:500px;
-  margin:auto;
+.container{
+max-width:500px;
+margin:auto;
+padding:20px;
 }
 
-.logo {
-  text-align:center;
+/* HERO */
+.hero{
+text-align:center;
+position:relative;
+padding-top:20px;
 }
 
-.logo img {
-  width:180px;
+.hero img.logo{
+width:180px;
+margin-bottom:10px;
 }
 
-.btn {
-  display:block;
-  text-align:center;
-  background:#ff2d2d;
-  color:#fff;
-  padding:15px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-  margin:20px 0;
+.cta{
+display:block;
+background:#ff2d2d;
+color:#fff;
+padding:16px;
+border-radius:14px;
+text-decoration:none;
+font-weight:bold;
+margin:15px 0;
+animation:pulse 2s infinite;
 }
 
-.card {
-  background:#fff;
-  border-radius:15px;
-  padding:15px;
-  margin-bottom:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
+@keyframes pulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.05)}
+100%{transform:scale(1)}
 }
 
-.card:hover {
-  transform:scale(1.03);
+/* FLOATING IMAGES */
+.float{
+position:absolute;
+width:70px;
+animation:float 4s ease-in-out infinite;
 }
 
-.card img {
-  width:100%;
-  border-radius:10px;
+.float1{top:10px;left:-10px}
+.float2{top:80px;right:-10px}
+.float3{bottom:-20px;left:10px}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
 }
 
-.title {
-  font-weight:bold;
-  font-size:18px;
-  margin:10px 0;
+/* SECTION */
+.section{
+background:#fff;
+border-radius:16px;
+padding:18px;
+margin:15px 0;
+box-shadow:0 10px 20px rgba(0,0,0,0.08);
 }
 
-.price {
-  color:#ff2d2d;
-  font-weight:bold;
+.section h2{
+margin-bottom:10px;
+color:#ff2d2d;
 }
 
-.footer {
-  text-align:center;
-  padding:20px;
-  font-size:14px;
+.section p{
+line-height:1.6;
+font-size:14px;
+}
+
+/* GALLERY */
+.gallery{
+display:flex;
+gap:10px;
+overflow-x:auto;
+margin-top:10px;
+}
+
+.gallery img{
+width:120px;
+border-radius:10px;
+}
+
+/* MAP */
+.map{
+border-radius:15px;
+overflow:hidden;
+margin-top:10px;
+}
+
+/* BUTTON */
+.btn{
+display:block;
+text-align:center;
+background:#000;
+color:#fff;
+padding:12px;
+border-radius:10px;
+text-decoration:none;
+margin-top:10px;
+}
+
+/* FOOTER */
+.footer{
+text-align:center;
+margin-top:20px;
+font-size:14px;
 }
 </style>
 </head>
@@ -79,76 +131,85 @@ body {
 
 <div class="container">
 
-<div class="logo">
-<img src="https://i.imgur.com/djroHbx.png">
+<div class="hero">
+<img class="logo" src="https://i.imgur.com/djroHbx.png">
+
+<a class="cta" href="https://order.online/store/33057477">ORDER ONLINE</a>
+
+<img class="float float1" src="https://i.imgur.com/yTB8HiV.png">
+<img class="float float2" src="https://i.imgur.com/k8Bb9FS.png">
+<img class="float float3" src="https://i.imgur.com/l4TJcpv.jpeg">
 </div>
 
-<a class="btn" href="https://order.online/store/33057477">ORDER ONLINE</a>
-
-<div class="card">
-<img src="https://i.imgur.com/l4TJcpv.jpeg">
-<div class="title">Whole Wings</div>
-<div class="price">From $9.99</div>
+<div class="section">
+<h2>About Us</h2>
+<p>
+At Eaters Fish and Chicken, we bring bold flavors, fresh ingredients, and unforgettable taste to every meal.
+Our passion is simple: serve high-quality food that keeps you coming back.
+From crispy wings to juicy sandwiches, everything is made with care, precision, and love.
+</p>
 </div>
 
-<div class="card">
+<div class="section">
+<h2>What We Do</h2>
+<p>
+We specialize in fried chicken, seafood, sandwiches, and comfort food favorites.
+Every item is prepared fresh, seasoned perfectly, and cooked to deliver the best texture and flavor.
+Whether you're craving wings, fish, shrimp, or a hearty sandwich, we’ve got something for everyone.
+</p>
+
+<div class="gallery">
 <img src="https://i.imgur.com/JllYect.jpeg">
-<div class="title">Party Wings</div>
-<div class="price">From $9.99</div>
-</div>
-
-<div class="card">
-<img src="https://i.imgur.com/yTb2LQA.jpeg">
-<div class="title">Chicken Tenders</div>
-<div class="price">From $9.99</div>
-</div>
-
-<div class="card">
-<img src="https://i.imgur.com/8CVbME3.jpeg">
-<div class="title">Fish</div>
-<div class="price">From $11.99</div>
-</div>
-
-<div class="card">
 <img src="https://i.imgur.com/D5XHOAC.jpeg">
-<div class="title">Shrimp</div>
-<div class="price">From $14.99</div>
-</div>
-
-<div class="card">
-<img src="https://i.imgur.com/yTB8HiV.png">
-<div class="title">Classic Burger</div>
-<div class="price">$7.99</div>
-</div>
-
-<div class="card">
-<img src="https://i.imgur.com/k8Bb9FS.png">
-<div class="title">Philly Cheesesteak</div>
-<div class="price">$7.99</div>
-</div>
-
-<div class="card">
-<img src="https://i.imgur.com/hmS9w2v.png">
-<div class="title">Gyro Sandwich</div>
-<div class="price">$7.99</div>
-</div>
-
-<div class="card">
+<img src="https://i.imgur.com/8CVbME3.jpeg">
+<img src="https://i.imgur.com/yTb2LQA.jpeg">
 <img src="https://i.imgur.com/Nc0fj5L.png">
-<div class="title">Fish or Chicken Sandwich</div>
-<div class="price">$7.99</div>
+</div>
 </div>
 
-<div class="card">
-<img src="https://i.imgur.com/LZA6huD.png">
-<div class="title">Salads</div>
-<div class="price">From $8.99</div>
+<div class="section">
+<h2>Why Choose Us</h2>
+<p>
+We focus on quality, speed, and consistency.
+Our recipes are crafted to deliver bold flavor in every bite.
+We use fresh ingredients, proven cooking techniques, and a commitment to excellence.
+That’s why our customers trust us for quick meals, family dinners, and everything in between.
+</p>
 </div>
 
-<div class="card">
-<img src="https://i.imgur.com/btmOlAr.png">
-<div class="title">Drinks</div>
-<div class="price">From $1.99</div>
+<div class="section">
+<h2>Signature Experience</h2>
+<p>
+Every visit to Eaters is more than just food.
+It’s a full experience of taste, satisfaction, and comfort.
+Our menu is designed to give you variety, from crispy fried options to grilled selections.
+Every bite reflects our dedication to flavor and quality.
+</p>
+
+<div class="gallery">
+<img src="https://i.imgur.com/f1Djm04.jpeg">
+<img src="https://i.imgur.com/CvcEMAM.jpeg">
+<img src="https://i.imgur.com/H2ZbnaJ.png">
+<img src="https://i.imgur.com/otSJKj6.png">
+</div>
+</div>
+
+<div class="section">
+<h2>Visit Us</h2>
+
+<div class="map">
+<iframe 
+width="100%" 
+height="200" 
+frameborder="0" 
+style="border:0"
+src="https://maps.google.com/maps?q=1304%20S%20Breiel%20Blvd%20Middletown&t=&z=15&ie=UTF8&iwloc=&output=embed">
+</iframe>
+</div>
+
+<a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=1304+S+Breiel+Blvd+Middletown">
+Get Directions
+</a>
 </div>
 
 <div class="footer">
