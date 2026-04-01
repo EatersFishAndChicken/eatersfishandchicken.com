@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eaters Fish and Chicken | Middletown</title>
+<title>Eaters Fish and Chicken</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
 --red:#ff2d2d;
---bg:#ffffff;
 --text:#111;
 --muted:#555;
 }
@@ -21,7 +20,6 @@ body{
 background:#fff url('https://i.imgur.com/lNAJ1Cd.png');
 background-size:400px;
 color:var(--text);
-scroll-behavior:smooth;
 }
 
 /* NAV */
@@ -37,7 +35,26 @@ border-bottom:1px solid #eee;
 z-index:1000;
 }
 
-nav img{width:110px}
+nav img{width:100px}
+
+.menu{
+display:flex;
+gap:12px;
+}
+
+.menu a{
+font-size:14px;
+font-weight:700;
+color:#000;
+text-decoration:none;
+}
+
+.order-btn{
+background:var(--red);
+color:#fff !important;
+padding:8px 12px;
+border-radius:8px;
+}
 
 /* HERO */
 .hero{
@@ -45,74 +62,30 @@ padding:60px 20px 20px;
 text-align:center;
 }
 
-.hero h1{
-font-size:32px;
-font-weight:900;
-}
-
-.hero p{
-color:var(--muted);
-margin:8px 0 18px;
-}
-
-.cta{
-background:var(--red);
+.cta, .call-btn{
+display:block;
 padding:14px;
 border-radius:14px;
 font-weight:900;
 text-decoration:none;
-color:#fff;
-display:block;
 margin-bottom:10px;
 }
 
-.call-btn{
-background:#000;
-color:#fff;
-padding:14px;
-border-radius:14px;
-font-weight:900;
-text-decoration:none;
-display:block;
-margin-bottom:15px;
-}
+.cta{background:var(--red);color:#fff}
+.call-btn{background:#000;color:#fff}
 
-.hero-img{
-width:100%;
-border-radius:20px;
-margin-top:10px;
-}
-
-.hero-extra{
-width:100%;
-margin-top:15px;
-}
+.hero-img{width:100%;border-radius:20px;margin-top:10px}
+.hero-extra{width:100%;margin-top:10px}
 
 /* SECTION */
 .section{
 padding:25px 20px;
 max-width:1100px;
 margin:auto;
-opacity:0;
-transform:translateY(30px);
-transition:.6s;
 }
 
-.section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.section h2{
-color:var(--red);
-margin-bottom:8px;
-}
-
-.section p{
-color:var(--muted);
-line-height:1.8;
-font-size:17px;
-}
+.section h2{color:var(--red);margin-bottom:6px}
+.section p{color:var(--muted);font-size:17px}
 
 /* MENU */
 .tabs{
@@ -125,7 +98,7 @@ margin:15px 0;
 .tab{
 padding:8px 14px;
 border-radius:10px;
-background:#f3f3f3;
+background:#eee;
 cursor:pointer;
 font-weight:700;
 }
@@ -148,18 +121,13 @@ text-align:center;
 }
 
 .item img{
-width:110px;
-height:110px;
+width:120px;
+height:120px;
 object-fit:contain;
-background:transparent;
-mix-blend-mode:multiply;
-filter:drop-shadow(0 12px 18px rgba(0,0,0,0.25));
+filter:drop-shadow(0 15px 20px rgba(0,0,0,.2));
 }
 
-.item h3{
-margin-top:6px;
-font-size:13px;
-}
+.item h3{margin-top:5px;font-size:13px}
 
 /* MAP */
 .map iframe{
@@ -181,16 +149,6 @@ padding:14px 25px;
 border-radius:30px;
 font-weight:900;
 text-decoration:none;
-box-shadow:0 10px 30px rgba(255,45,45,.4);
-}
-
-/* FOOTER */
-.footer{
-text-align:center;
-padding:25px;
-border-top:1px solid #eee;
-color:var(--muted);
-margin-top:20px;
 }
 </style>
 </head>
@@ -199,14 +157,20 @@ margin-top:20px;
 
 <nav>
 <img src="https://i.imgur.com/djroHbx.png">
+
+<div class="menu">
+<a href="#about">About</a>
+<a href="#menu">Menu</a>
+<a href="#location">Location</a>
+<a class="order-btn" href="https://order.online/store/33057477">Order</a>
+</div>
 </nav>
 
 <section class="hero">
-<h1>Fresh Fish. Crispy Chicken. Unmatched Flavor.</h1>
-<p>Fast, fresh, and made to satisfy every craving.</p>
+<h1>Fresh Fish. Crispy Chicken.</h1>
 
 <a class="cta" href="https://order.online/store/33057477">ORDER ONLINE</a>
-<a class="call-btn" href="tel:5132171881">CALL US: 513-217-1881</a>
+<a class="call-btn" href="tel:5132171881">CALL US</a>
 
 <img class="hero-img" src="https://i.imgur.com/P6CDylH.jpeg">
 <img class="hero-extra" src="https://i.imgur.com/rWdx3xo.png">
@@ -214,35 +178,30 @@ margin-top:20px;
 
 <section class="section" id="about">
 <h2>About Us</h2>
-<p>
-Eaters Fish and Chicken delivers bold flavor and high-quality comfort food.
-We specialize in crispy chicken, seafood, sandwiches, and signature meals,
-served fresh and fast every day in Middletown.
-</p>
+<p>We serve fresh crispy chicken and seafood daily.</p>
 </section>
 
 <section class="section" id="menu">
 <h2>Our Menu</h2>
 
 <div class="tabs">
-<div class="tab active" onclick="filterMenu('all')">All</div>
-<div class="tab" onclick="filterMenu('chicken')">Chicken</div>
-<div class="tab" onclick="filterMenu('seafood')">Seafood</div>
-<div class="tab" onclick="filterMenu('sandwich')">Sandwiches</div>
+<div class="tab active" onclick="filterMenu(this,'all')">All</div>
+<div class="tab" onclick="filterMenu(this,'chicken')">Chicken</div>
+<div class="tab" onclick="filterMenu(this,'seafood')">Seafood</div>
+<div class="tab" onclick="filterMenu(this,'sandwich')">Sandwiches</div>
 </div>
 
 <div class="menu-scroll" id="menuGrid">
 
-<div class="item chicken"><img src="https://i.imgur.com/l4TJcpv.jpeg"><h3>Wings</h3></div>
-<div class="item chicken"><img src="https://i.imgur.com/JllYect.jpeg"><h3>Party Wings</h3></div>
-<div class="item chicken"><img src="https://i.imgur.com/yTb2LQA.jpeg"><h3>Tenders</h3></div>
+<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Wings</h3></div>
+<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Party Wings</h3></div>
+<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Tenders</h3></div>
 
 <div class="item seafood"><img src="https://i.imgur.com/8CVbME3.jpeg"><h3>Fish</h3></div>
 <div class="item seafood"><img src="https://i.imgur.com/D5XHOAC.jpeg"><h3>Shrimp</h3></div>
 
 <div class="item sandwich"><img src="https://i.imgur.com/k8Bb9FS.png"><h3>Philly</h3></div>
 <div class="item sandwich"><img src="https://i.imgur.com/hmS9w2v.png"><h3>Gyro</h3></div>
-<div class="item sandwich"><img src="https://i.imgur.com/yTB8HiV.png"><h3>Burger</h3></div>
 
 </div>
 </section>
@@ -260,26 +219,18 @@ served fresh and fast every day in Middletown.
 
 <a class="floating-order" href="https://order.online/store/33057477">ORDER NOW</a>
 
-<div class="footer">
-📍 1304 S Breiel Blvd, Middletown<br>
-📞 513-217-1881
-</div>
-
 <script>
-const sections=document.querySelectorAll('.section');
-window.addEventListener('scroll',()=>{
-sections.forEach(sec=>{
-const top=sec.getBoundingClientRect().top;
-if(top<window.innerHeight-80){sec.classList.add('show')}
-});
-});
+function filterMenu(el,type){
 
-function filterMenu(type){
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-event.target.classList.add('active');
+el.classList.add('active');
 
 document.querySelectorAll('#menuGrid .item').forEach(item=>{
-item.style.display=(type==='all'||item.classList.contains(type))?'block':'block';
+if(type === 'all'){
+item.style.display='block';
+}else{
+item.style.display = item.classList.contains(type) ? 'block' : 'none';
+}
 });
 }
 </script>
