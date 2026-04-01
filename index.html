@@ -49,7 +49,6 @@ gap:15px;
 color:var(--muted);
 text-decoration:none;
 font-weight:700;
-transition:.3s;
 }
 
 .menu a.active,
@@ -85,17 +84,25 @@ border-radius:14px;
 font-weight:900;
 text-decoration:none;
 color:#fff;
-display:inline-block;
-box-shadow:0 10px 25px rgba(255,45,45,.3);
-transition:.3s;
+display:block;
+margin-bottom:10px;
 }
 
-.cta:hover{transform:scale(1.05)}
+.call-btn{
+background:#000;
+color:#fff;
+padding:14px;
+border-radius:14px;
+font-weight:900;
+text-decoration:none;
+display:block;
+margin-bottom:20px;
+}
 
 .hero-img{
 width:100%;
 border-radius:20px;
-margin-top:30px;
+margin-top:20px;
 }
 
 /* SECTION */
@@ -120,7 +127,8 @@ margin-bottom:10px;
 
 .section p{
 color:var(--muted);
-line-height:1.7;
+line-height:1.8;
+font-size:17px;
 }
 
 /* MENU */
@@ -145,30 +153,27 @@ background:var(--red);
 color:#fff;
 }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+.menu-scroll{
+display:flex;
 gap:15px;
+overflow-x:auto;
+padding-bottom:10px;
 }
 
 .item{
-background:var(--card);
-border-radius:15px;
-overflow:hidden;
-transition:.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
+min-width:140px;
+background:transparent;
+text-align:center;
 }
 
-.item:hover{transform:scale(1.05)}
-
 .item img{
-width:100%;
+width:120px;
 height:120px;
-object-fit:cover;
+object-fit:contain;
 }
 
 .item h3{
-padding:10px;
+margin-top:8px;
 font-size:14px;
 }
 
@@ -186,12 +191,6 @@ text-align:center;
 padding:30px;
 border-top:1px solid #eee;
 color:var(--muted);
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
 }
 </style>
 </head>
@@ -212,9 +211,11 @@ to{opacity:1;transform:translateY(0)}
 <section class="hero">
 <h1>Fresh Fish. Crispy Chicken. Unmatched Flavor.</h1>
 <p>Fast, fresh, and made to satisfy every craving.</p>
-<a class="cta" href="https://order.online/store/33057477">ORDER ONLINE</a>
 
-<img class="hero-img" src="https://i.imgur.com/otSJKj6.png">
+<a class="cta" href="https://order.online/store/33057477">ORDER ONLINE</a>
+<a class="call-btn" href="tel:5132171881">CALL US: 513-217-1881</a>
+
+<img class="hero-img" src="https://i.imgur.com/P6CDylH.jpeg">
 </section>
 
 <section class="section" id="about">
@@ -236,9 +237,9 @@ served fresh and fast every day in Middletown.
 <div class="tab" onclick="filterMenu('sandwich')">Sandwiches</div>
 </div>
 
-<div class="grid" id="menuGrid">
+<div class="menu-scroll" id="menuGrid">
 
-<div class="item chicken"><img src="https://i.imgur.com/l4TJcpv.jpeg"><h3>Whole Wings</h3></div>
+<div class="item chicken"><img src="https://i.imgur.com/l4TJcpv.jpeg"><h3>Wings</h3></div>
 <div class="item chicken"><img src="https://i.imgur.com/JllYect.jpeg"><h3>Party Wings</h3></div>
 <div class="item chicken"><img src="https://i.imgur.com/yTb2LQA.jpeg"><h3>Tenders</h3></div>
 
@@ -269,8 +270,6 @@ served fresh and fast every day in Middletown.
 </div>
 
 <script>
-
-/* SCROLL ANIMATION */
 const sections=document.querySelectorAll('.section');
 window.addEventListener('scroll',()=>{
 sections.forEach(sec=>{
@@ -279,7 +278,6 @@ if(top<window.innerHeight-100){sec.classList.add('show')}
 });
 });
 
-/* MENU FILTER */
 function filterMenu(type){
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 event.target.classList.add('active');
@@ -288,19 +286,6 @@ document.querySelectorAll('#menuGrid .item').forEach(item=>{
 item.style.display=(type==='all'||item.classList.contains(type))?'block':'none';
 });
 }
-
-/* ACTIVE NAV */
-const links=document.querySelectorAll('.menu a');
-window.addEventListener('scroll',()=>{
-let fromTop=window.scrollY;
-links.forEach(link=>{
-let section=document.querySelector(link.getAttribute('href'));
-if(section.offsetTop<=fromTop+100 && section.offsetTop+section.offsetHeight>fromTop){
-links.forEach(l=>l.classList.remove('active'));
-link.classList.add('active');
-}
-});
-});
 </script>
 
 </body>
