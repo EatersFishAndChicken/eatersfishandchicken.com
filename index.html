@@ -3,236 +3,549 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Eaters Fish and Chicken</title>
-
+<title>Eaters Fish and Chicken | Middletown</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
---red:#ff2d2d;
---text:#111;
---muted:#555;
+  --red:#f44336;
+  --red-dark:#e53935;
+  --text:#111;
+  --muted:#555;
+  --bg:#ffffff;
+  --line:#ececec;
+  --shadow:0 10px 24px rgba(0,0,0,.10);
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-background:#fff url('https://i.imgur.com/lNAJ1Cd.png');
-background-size:400px;
-color:var(--text);
+  background:#fff url('https://i.imgur.com/lNAJ1Cd.png');
+  background-size:400px;
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+a{
+  text-decoration:none;
+}
+
+.container{
+  width:min(100%, 1120px);
+  margin:0 auto;
+  padding:0 20px;
 }
 
 /* NAV */
+
 nav{
-position:sticky;
-top:0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:12px 18px;
-background:#fff;
-border-bottom:1px solid #eee;
-z-index:1000;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
 }
 
-nav img{width:100px}
+.nav-inner{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+
+.brand img{
+  width:120px;
+}
 
 .menu{
-display:flex;
-gap:12px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  flex-wrap:wrap;
 }
 
 .menu a{
-font-size:14px;
-font-weight:700;
-color:#000;
-text-decoration:none;
+  color:#111;
+  font-size:15px;
+  font-weight:800;
+  padding:8px 10px;
+  border-radius:10px;
 }
 
-.order-btn{
-background:var(--red);
-color:#fff !important;
-padding:8px 12px;
-border-radius:8px;
+.menu a:hover{
+  background:#f5f5f5;
+}
+
+.menu .order-btn{
+  background:var(--red);
+  color:#fff;
+  padding:10px 14px;
+  box-shadow:0 8px 18px rgba(244,67,54,.22);
 }
 
 /* HERO */
+
 .hero{
-padding:60px 20px 20px;
-text-align:center;
+  padding:34px 0 18px;
 }
 
-.cta, .call-btn{
-display:block;
-padding:14px;
-border-radius:14px;
-font-weight:900;
-text-decoration:none;
-margin-bottom:10px;
+.hero-wrap{
+  display:grid;
+  gap:18px;
 }
 
-.cta{background:var(--red);color:#fff}
-.call-btn{background:#000;color:#fff}
+.hero-copy{
+  text-align:center;
+}
 
-.hero-img{width:100%;border-radius:20px;margin-top:10px}
-.hero-extra{width:100%;margin-top:10px}
+.hero-copy h1{
+  font-size:clamp(32px, 7vw, 54px);
+  line-height:1.02;
+  font-weight:900;
+  margin-bottom:10px;
+}
 
-/* SECTION */
+.hero-copy p{
+  font-size:18px;
+  line-height:1.75;
+  color:var(--muted);
+  max-width:760px;
+  margin:0 auto 18px;
+}
+
+.hero-actions{
+  display:grid;
+  gap:10px;
+  max-width:520px;
+  margin:0 auto 14px;
+}
+
+.cta,
+.call-btn{
+  display:block;
+  width:100%;
+  text-align:center;
+  padding:15px 18px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:900;
+}
+
+.cta{
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 12px 24px rgba(244,67,54,.26);
+}
+
+.call-btn{
+  background:#111;
+  color:#fff;
+}
+
+.hero-img{
+  width:100%;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+
+.hero-extra{
+  width:100%;
+  margin-top:10px;
+  object-fit:contain;
+  filter:drop-shadow(0 16px 20px rgba(0,0,0,.14));
+}
+
+/* SECTIONS */
+
 .section{
-padding:25px 20px;
-max-width:1100px;
-margin:auto;
+  padding:18px 0;
 }
 
-.section h2{color:var(--red);margin-bottom:6px}
-.section p{color:var(--muted);font-size:17px}
+.section h2{
+  color:var(--red);
+  font-size:clamp(28px, 5vw, 42px);
+  line-height:1.1;
+  margin-bottom:8px;
+  font-weight:900;
+}
 
-/* MENU */
+.section p{
+  font-size:20px;
+  line-height:1.9;
+  color:var(--muted);
+}
+
+.about-text{
+  max-width:900px;
+}
+
+/* MENU FILTER */
+
 .tabs{
-display:flex;
-gap:10px;
-overflow:auto;
-margin:15px 0;
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:8px 2px 4px;
+  margin:12px 0 18px;
+  scrollbar-width:none;
+}
+
+.tabs::-webkit-scrollbar{
+  display:none;
 }
 
 .tab{
-padding:8px 14px;
-border-radius:10px;
-background:#eee;
-cursor:pointer;
-font-weight:700;
+  border:none;
+  background:#f3f3f3;
+  color:#111;
+  border-radius:16px;
+  padding:14px 22px;
+  font-size:17px;
+  font-weight:900;
+  cursor:pointer;
+  white-space:nowrap;
+  flex:0 0 auto;
 }
 
 .tab.active{
-background:var(--red);
-color:#fff;
+  background:var(--red);
+  color:#fff;
+  box-shadow:0 10px 20px rgba(244,67,54,.22);
 }
 
 .menu-scroll{
-display:flex;
-gap:15px;
-overflow-x:auto;
-padding-bottom:10px;
+  display:flex;
+  gap:18px;
+  overflow-x:auto;
+  padding:4px 2px 10px;
+  scrollbar-width:none;
+  scroll-snap-type:x proximity;
+}
+
+.menu-scroll::-webkit-scrollbar{
+  display:none;
 }
 
 .item{
-min-width:130px;
-text-align:center;
+  min-width:148px;
+  flex:0 0 auto;
+  text-align:center;
+  scroll-snap-align:start;
+}
+
+.item-visual{
+  width:148px;
+  height:148px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 10px;
 }
 
 .item img{
-width:120px;
-height:120px;
-object-fit:contain;
-filter:drop-shadow(0 15px 20px rgba(0,0,0,.2));
+  width:132px;
+  height:132px;
+  object-fit:contain;
+  background:transparent;
+  filter:drop-shadow(0 14px 18px rgba(0,0,0,.16));
+  mix-blend-mode:multiply;
 }
 
-.item h3{margin-top:5px;font-size:13px}
+.item h3{
+  font-size:15px;
+  font-weight:900;
+  line-height:1.25;
+}
 
-/* MAP */
+/* LOCATION */
+
+.map{
+  margin-top:10px;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
 .map iframe{
-width:100%;
-height:260px;
-border-radius:15px;
-border:0;
+  width:100%;
+  height:300px;
+  border:0;
+  display:block;
 }
 
-/* FLOAT BUTTON */
+.direction-wrap{
+  margin-top:14px;
+}
+
+.direction-btn{
+  display:block;
+  text-align:center;
+  background:var(--red);
+  color:#fff;
+  padding:15px 18px;
+  border-radius:16px;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 12px 24px rgba(244,67,54,.22);
+}
+
+/* FLOATING ORDER */
+
 .floating-order{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:var(--red);
-color:#fff;
-padding:14px 25px;
-border-radius:30px;
-font-weight:900;
-text-decoration:none;
+  position:fixed;
+  left:50%;
+  transform:translateX(-50%);
+  bottom:18px;
+  z-index:1001;
+  background:var(--red);
+  color:#fff;
+  padding:15px 28px;
+  border-radius:999px;
+  font-size:18px;
+  font-weight:900;
+  box-shadow:0 16px 32px rgba(244,67,54,.30);
+}
+
+/* FOOTER */
+
+.footer{
+  padding:26px 20px 110px;
+  text-align:center;
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+}
+
+@media (max-width:720px){
+  .nav-inner{
+    align-items:flex-start;
+    padding:12px 0;
+  }
+
+  .brand img{
+    width:110px;
+  }
+
+  .menu{
+    justify-content:flex-end;
+    gap:8px;
+  }
+
+  .menu a{
+    font-size:14px;
+    padding:7px 8px;
+  }
+
+  .section p{
+    font-size:18px;
+  }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
-<img src="https://i.imgur.com/djroHbx.png">
+  <div class="container nav-inner">
+    <a class="brand" href="#">
+      <img src="https://i.imgur.com/djroHbx.png" alt="Eaters Fish and Chicken logo">
+    </a>
 
-<div class="menu">
-<a href="#about">About</a>
-<a href="#menu">Menu</a>
-<a href="#location">Location</a>
-<a class="order-btn" href="https://order.online/store/33057477">Order</a>
-</div>
+    <div class="menu">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#location">Location</a>
+      <a class="order-btn" href="https://order.online/store/33057477" target="_blank" rel="noopener">Order</a>
+    </div>
+  </div>
 </nav>
 
-<section class="hero">
-<h1>Fresh Fish. Crispy Chicken.</h1>
+<header class="hero">
+  <div class="container hero-wrap">
+    <div class="hero-copy">
+      <h1>Fresh Fish. Crispy Chicken. Unmatched Flavor.</h1>
+      <p>
+        Fast, fresh, and made to satisfy every craving.
+      </p>
 
-<a class="cta" href="https://order.online/store/33057477">ORDER ONLINE</a>
-<a class="call-btn" href="tel:5132171881">CALL US</a>
+      <div class="hero-actions">
+        <a class="cta" href="https://order.online/store/33057477" target="_blank" rel="noopener">ORDER ONLINE</a>
+        <a class="call-btn" href="tel:5132171881">CALL US: 513-217-1881</a>
+      </div>
+    </div>
 
-<img class="hero-img" src="https://i.imgur.com/P6CDylH.jpeg">
-<img class="hero-extra" src="https://i.imgur.com/rWdx3xo.png">
-</section>
+    <img class="hero-img" src="https://i.imgur.com/P6CDylH.jpeg" alt="Eaters food hero image">
+    <img class="hero-extra" src="https://i.imgur.com/rWdx3xo.png" alt="Decorative food image">
+  </div>
+</header>
 
 <section class="section" id="about">
-<h2>About Us</h2>
-<p>We serve fresh crispy chicken and seafood daily.</p>
+  <div class="container">
+    <h2>About Us</h2>
+    <p class="about-text">
+      Eaters Fish and Chicken delivers bold flavor and high-quality comfort food. We specialize in crispy chicken, seafood, sandwiches, and signature meals, served fresh and fast every day in Middletown. Our goal is simple: great food, generous portions, fast service, and a flavor people remember. Whether you are stopping in for lunch, dinner, family meals, or a quick order online, we make every meal with care and the kind of taste that keeps people coming back.
+    </p>
+  </div>
 </section>
 
 <section class="section" id="menu">
-<h2>Our Menu</h2>
+  <div class="container">
+    <h2>Our Menu</h2>
 
-<div class="tabs">
-<div class="tab active" onclick="filterMenu(this,'all')">All</div>
-<div class="tab" onclick="filterMenu(this,'chicken')">Chicken</div>
-<div class="tab" onclick="filterMenu(this,'seafood')">Seafood</div>
-<div class="tab" onclick="filterMenu(this,'sandwich')">Sandwiches</div>
-</div>
+    <div class="tabs">
+      <button class="tab active" type="button" data-filter="all">All</button>
+      <button class="tab" type="button" data-filter="chicken">Chicken</button>
+      <button class="tab" type="button" data-filter="seafood">Seafood</button>
+      <button class="tab" type="button" data-filter="sandwich">Sandwiches</button>
+      <button class="tab" type="button" data-filter="extras">More</button>
+    </div>
 
-<div class="menu-scroll" id="menuGrid">
+    <div class="menu-scroll" id="menuGrid">
+      <div class="item chicken">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/l4TJcpv.jpeg" alt="Whole wings">
+        </div>
+        <h3>Whole Wings</h3>
+      </div>
 
-<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Wings</h3></div>
-<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Party Wings</h3></div>
-<div class="item chicken"><img src="https://i.imgur.com/rWdx3xo.png"><h3>Tenders</h3></div>
+      <div class="item chicken">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/JllYect.jpeg" alt="Party wings">
+        </div>
+        <h3>Party Wings</h3>
+      </div>
 
-<div class="item seafood"><img src="https://i.imgur.com/8CVbME3.jpeg"><h3>Fish</h3></div>
-<div class="item seafood"><img src="https://i.imgur.com/D5XHOAC.jpeg"><h3>Shrimp</h3></div>
+      <div class="item chicken">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/yTb2LQA.jpeg" alt="Chicken tenders">
+        </div>
+        <h3>Tenders</h3>
+      </div>
 
-<div class="item sandwich"><img src="https://i.imgur.com/k8Bb9FS.png"><h3>Philly</h3></div>
-<div class="item sandwich"><img src="https://i.imgur.com/hmS9w2v.png"><h3>Gyro</h3></div>
+      <div class="item seafood">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/8CVbME3.jpeg" alt="Fish">
+        </div>
+        <h3>Fish</h3>
+      </div>
 
-</div>
+      <div class="item seafood">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/D5XHOAC.jpeg" alt="Shrimp">
+        </div>
+        <h3>Shrimp</h3>
+      </div>
+
+      <div class="item sandwich">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/k8Bb9FS.png" alt="Philly steak sandwich">
+        </div>
+        <h3>Philly</h3>
+      </div>
+
+      <div class="item sandwich">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/hmS9w2v.png" alt="Gyro sandwich">
+        </div>
+        <h3>Gyro</h3>
+      </div>
+
+      <div class="item sandwich">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/Nc0fj5L.png" alt="Fish or chicken sandwich">
+        </div>
+        <h3>Fish or Chicken Sandwich</h3>
+      </div>
+
+      <div class="item sandwich">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/yTB8HiV.png" alt="Classic burger">
+        </div>
+        <h3>Classic Burger</h3>
+      </div>
+
+      <div class="item extras">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/LZA6huD.png" alt="Salad">
+        </div>
+        <h3>Salads</h3>
+      </div>
+
+      <div class="item extras">
+        <div class="item-visual">
+          <img src="https://i.imgur.com/btmOlAr.png" alt="Drinks">
+        </div>
+        <h3>Drinks</h3>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="section" id="location">
-<h2>Visit Us</h2>
+  <div class="container">
+    <h2>Visit Us</h2>
 
-<div class="map">
-<iframe src="https://maps.google.com/maps?q=1304%20S%20Breiel%20Blvd%20Middletown&output=embed"></iframe>
-</div>
+    <div class="map">
+      <iframe
+        src="https://maps.google.com/maps?q=1304%20S%20Breiel%20Blvd%20Middletown&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Map to Eaters Fish and Chicken">
+      </iframe>
+    </div>
 
-<a class="cta" href="https://www.google.com/maps/dir/?api=1&destination=1304+S+Breiel+Blvd+Middletown">Get Directions</a>
-
+    <div class="direction-wrap">
+      <a class="direction-btn" href="https://www.google.com/maps/dir/?api=1&destination=1304+S+Breiel+Blvd+Middletown" target="_blank" rel="noopener">
+        Get Directions
+      </a>
+    </div>
+  </div>
 </section>
 
-<a class="floating-order" href="https://order.online/store/33057477">ORDER NOW</a>
+<a class="floating-order" href="https://order.online/store/33057477" target="_blank" rel="noopener">ORDER NOW</a>
+
+<footer class="footer">
+  📍 1304 S Breiel Blvd, Middletown<br>
+  📞 513-217-1881
+</footer>
 
 <script>
-function filterMenu(el,type){
+document.addEventListener('DOMContentLoaded', function () {
+  const tabs = document.querySelectorAll('.tab');
+  const items = document.querySelectorAll('#menuGrid .item');
 
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-el.classList.add('active');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function () {
+      const filter = this.getAttribute('data-filter');
 
-document.querySelectorAll('#menuGrid .item').forEach(item=>{
-if(type === 'all'){
-item.style.display='block';
-}else{
-item.style.display = item.classList.contains(type) ? 'block' : 'none';
-}
+      tabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+
+      items.forEach(item => {
+        if (filter === 'all' || item.classList.contains(filter)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
 });
-}
 </script>
 
 </body>
