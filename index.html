@@ -39,28 +39,6 @@ z-index:1000;
 
 nav img{width:110px}
 
-.menu{
-display:flex;
-gap:12px;
-}
-
-.menu a{
-color:var(--muted);
-text-decoration:none;
-font-weight:700;
-font-size:14px;
-}
-
-.menu a.active,
-.menu a:hover{color:#000}
-
-.order-btn{
-background:var(--red);
-padding:8px 12px;
-border-radius:8px;
-color:#fff !important;
-}
-
 /* HERO */
 .hero{
 padding:60px 20px 20px;
@@ -86,7 +64,6 @@ text-decoration:none;
 color:#fff;
 display:block;
 margin-bottom:10px;
-box-shadow:0 10px 25px rgba(255,45,45,.3);
 }
 
 .call-btn{
@@ -104,6 +81,11 @@ margin-bottom:15px;
 width:100%;
 border-radius:20px;
 margin-top:10px;
+}
+
+.hero-extra{
+width:100%;
+margin-top:15px;
 }
 
 /* SECTION */
@@ -145,10 +127,7 @@ padding:8px 14px;
 border-radius:10px;
 background:#f3f3f3;
 cursor:pointer;
-white-space:nowrap;
 font-weight:700;
-font-size:14px;
-transition:.2s;
 }
 
 .tab.active{
@@ -161,28 +140,20 @@ display:flex;
 gap:15px;
 overflow-x:auto;
 padding-bottom:10px;
-scroll-snap-type:x mandatory;
 }
 
 .item{
 min-width:130px;
 text-align:center;
-scroll-snap-align:start;
-transition:.3s;
 }
-
-.item:hover{transform:scale(1.08)}
 
 .item img{
 width:110px;
 height:110px;
 object-fit:contain;
-filter:drop-shadow(0 10px 15px rgba(0,0,0,0.15));
-transition:.3s;
-}
-
-.item:hover img{
-transform:scale(1.1);
+background:transparent;
+mix-blend-mode:multiply;
+filter:drop-shadow(0 12px 18px rgba(0,0,0,0.25));
 }
 
 .item h3{
@@ -198,7 +169,7 @@ border-radius:15px;
 border:0;
 }
 
-/* FLOATING BUTTON */
+/* FLOAT BUTTON */
 .floating-order{
 position:fixed;
 bottom:20px;
@@ -211,7 +182,6 @@ border-radius:30px;
 font-weight:900;
 text-decoration:none;
 box-shadow:0 10px 30px rgba(255,45,45,.4);
-z-index:1000;
 }
 
 /* FOOTER */
@@ -229,13 +199,6 @@ margin-top:20px;
 
 <nav>
 <img src="https://i.imgur.com/djroHbx.png">
-
-<div class="menu">
-<a href="#about">About</a>
-<a href="#menu">Menu</a>
-<a href="#location">Location</a>
-<a class="order-btn" href="https://order.online/store/33057477">Order</a>
-</div>
 </nav>
 
 <section class="hero">
@@ -246,6 +209,7 @@ margin-top:20px;
 <a class="call-btn" href="tel:5132171881">CALL US: 513-217-1881</a>
 
 <img class="hero-img" src="https://i.imgur.com/P6CDylH.jpeg">
+<img class="hero-extra" src="https://i.imgur.com/rWdx3xo.png">
 </section>
 
 <section class="section" id="about">
@@ -302,8 +266,6 @@ served fresh and fast every day in Middletown.
 </div>
 
 <script>
-
-/* SCROLL ANIMATION */
 const sections=document.querySelectorAll('.section');
 window.addEventListener('scroll',()=>{
 sections.forEach(sec=>{
@@ -312,28 +274,14 @@ if(top<window.innerHeight-80){sec.classList.add('show')}
 });
 });
 
-/* MENU FILTER */
 function filterMenu(type){
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 event.target.classList.add('active');
 
 document.querySelectorAll('#menuGrid .item').forEach(item=>{
-item.style.display=(type==='all'||item.classList.contains(type))?'block':'none';
+item.style.display=(type==='all'||item.classList.contains(type))?'block':'block';
 });
 }
-
-/* ACTIVE NAV */
-const links=document.querySelectorAll('.menu a');
-window.addEventListener('scroll',()=>{
-let fromTop=window.scrollY;
-links.forEach(link=>{
-let section=document.querySelector(link.getAttribute('href'));
-if(section.offsetTop<=fromTop+100 && section.offsetTop+section.offsetHeight>fromTop){
-links.forEach(l=>l.classList.remove('active'));
-link.classList.add('active');
-}
-});
-});
 </script>
 
 </body>
