@@ -11,7 +11,6 @@
 :root{
 --red:#ff2d2d;
 --bg:#ffffff;
---card:#ffffff;
 --text:#111;
 --muted:#555;
 }
@@ -32,23 +31,24 @@ top:0;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:15px 20px;
+padding:12px 18px;
 background:#fff;
 border-bottom:1px solid #eee;
 z-index:1000;
 }
 
-nav img{width:120px}
+nav img{width:110px}
 
 .menu{
 display:flex;
-gap:15px;
+gap:12px;
 }
 
 .menu a{
 color:var(--muted);
 text-decoration:none;
 font-weight:700;
+font-size:14px;
 }
 
 .menu a.active,
@@ -56,36 +56,37 @@ font-weight:700;
 
 .order-btn{
 background:var(--red);
-padding:10px 15px;
-border-radius:10px;
+padding:8px 12px;
+border-radius:8px;
 color:#fff !important;
 }
 
 /* HERO */
 .hero{
-padding:80px 20px;
+padding:60px 20px 20px;
 text-align:center;
 }
 
 .hero h1{
-font-size:36px;
+font-size:32px;
 font-weight:900;
 }
 
 .hero p{
 color:var(--muted);
-margin:10px 0 20px;
+margin:8px 0 18px;
 }
 
 .cta{
 background:var(--red);
-padding:15px 28px;
+padding:14px;
 border-radius:14px;
 font-weight:900;
 text-decoration:none;
 color:#fff;
 display:block;
 margin-bottom:10px;
+box-shadow:0 10px 25px rgba(255,45,45,.3);
 }
 
 .call-btn{
@@ -96,22 +97,22 @@ border-radius:14px;
 font-weight:900;
 text-decoration:none;
 display:block;
-margin-bottom:20px;
+margin-bottom:15px;
 }
 
 .hero-img{
 width:100%;
 border-radius:20px;
-margin-top:20px;
+margin-top:10px;
 }
 
 /* SECTION */
 .section{
-padding:60px 20px;
+padding:25px 20px;
 max-width:1100px;
 margin:auto;
 opacity:0;
-transform:translateY(40px);
+transform:translateY(30px);
 transition:.6s;
 }
 
@@ -122,7 +123,7 @@ transform:translateY(0);
 
 .section h2{
 color:var(--red);
-margin-bottom:10px;
+margin-bottom:8px;
 }
 
 .section p{
@@ -136,16 +137,18 @@ font-size:17px;
 display:flex;
 gap:10px;
 overflow:auto;
-margin:20px 0;
+margin:15px 0;
 }
 
 .tab{
-padding:10px 15px;
+padding:8px 14px;
 border-radius:10px;
 background:#f3f3f3;
 cursor:pointer;
 white-space:nowrap;
 font-weight:700;
+font-size:14px;
+transition:.2s;
 }
 
 .tab.active{
@@ -158,39 +161,66 @@ display:flex;
 gap:15px;
 overflow-x:auto;
 padding-bottom:10px;
+scroll-snap-type:x mandatory;
 }
 
 .item{
-min-width:140px;
-background:transparent;
+min-width:130px;
 text-align:center;
+scroll-snap-align:start;
+transition:.3s;
 }
 
+.item:hover{transform:scale(1.08)}
+
 .item img{
-width:120px;
-height:120px;
+width:110px;
+height:110px;
 object-fit:contain;
+filter:drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+transition:.3s;
+}
+
+.item:hover img{
+transform:scale(1.1);
 }
 
 .item h3{
-margin-top:8px;
-font-size:14px;
+margin-top:6px;
+font-size:13px;
 }
 
 /* MAP */
 .map iframe{
 width:100%;
-height:300px;
+height:260px;
 border-radius:15px;
 border:0;
+}
+
+/* FLOATING BUTTON */
+.floating-order{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:var(--red);
+color:#fff;
+padding:14px 25px;
+border-radius:30px;
+font-weight:900;
+text-decoration:none;
+box-shadow:0 10px 30px rgba(255,45,45,.4);
+z-index:1000;
 }
 
 /* FOOTER */
 .footer{
 text-align:center;
-padding:30px;
+padding:25px;
 border-top:1px solid #eee;
 color:var(--muted);
+margin-top:20px;
 }
 </style>
 </head>
@@ -264,20 +294,25 @@ served fresh and fast every day in Middletown.
 
 </section>
 
+<a class="floating-order" href="https://order.online/store/33057477">ORDER NOW</a>
+
 <div class="footer">
 📍 1304 S Breiel Blvd, Middletown<br>
 📞 513-217-1881
 </div>
 
 <script>
+
+/* SCROLL ANIMATION */
 const sections=document.querySelectorAll('.section');
 window.addEventListener('scroll',()=>{
 sections.forEach(sec=>{
 const top=sec.getBoundingClientRect().top;
-if(top<window.innerHeight-100){sec.classList.add('show')}
+if(top<window.innerHeight-80){sec.classList.add('show')}
 });
 });
 
+/* MENU FILTER */
 function filterMenu(type){
 document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
 event.target.classList.add('active');
@@ -286,6 +321,19 @@ document.querySelectorAll('#menuGrid .item').forEach(item=>{
 item.style.display=(type==='all'||item.classList.contains(type))?'block':'none';
 });
 }
+
+/* ACTIVE NAV */
+const links=document.querySelectorAll('.menu a');
+window.addEventListener('scroll',()=>{
+let fromTop=window.scrollY;
+links.forEach(link=>{
+let section=document.querySelector(link.getAttribute('href'));
+if(section.offsetTop<=fromTop+100 && section.offsetTop+section.offsetHeight>fromTop){
+links.forEach(l=>l.classList.remove('active'));
+link.classList.add('active');
+}
+});
+});
 </script>
 
 </body>
