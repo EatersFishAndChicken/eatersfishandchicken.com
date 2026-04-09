@@ -7,27 +7,109 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
 
 <style>
-/* KEEPING YOUR ORIGINAL CSS */
 :root{
   --red:#f44336;
+  --red-dark:#e53935;
   --text:#111;
   --muted:#555;
+  --bg:#ffffff;
   --line:#ececec;
   --shadow:0 10px 24px rgba(0,0,0,.10);
 }
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;}
 html{scroll-behavior:smooth;}
-body{background:#fff url('https://i.imgur.com/lNAJ1Cd.png');background-size:400px;color:var(--text);}
-.container{width:min(100%,1120px);margin:0 auto;padding:0 20px;}
-nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:1000;}
-.nav-inner{display:flex;justify-content:space-between;align-items:center;min-height:70px;}
-.menu{display:flex;gap:12px;}
-.menu a{font-weight:800;}
-.menu .order-btn{background:var(--red);color:#fff;padding:10px;border-radius:10px;}
-.hero{padding:30px 0;text-align:center;}
-.cta{background:var(--red);color:#fff;padding:15px;border-radius:12px;display:block;}
+
+body{
+  background:#fff url('https://i.imgur.com/lNAJ1Cd.png');
+  background-size:400px;
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block;}
+a{text-decoration:none;}
+
+.container{
+  width:min(100%, 1120px);
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* NAV */
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+
+.nav-inner{
+  min-height:74px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.brand img{width:120px;}
+
+.menu{
+  display:flex;
+  gap:12px;
+}
+
+.menu a{
+  color:#111;
+  font-size:15px;
+  font-weight:800;
+  padding:8px 10px;
+  border-radius:10px;
+}
+
+.menu .order-btn{
+  background:var(--red);
+  color:#fff;
+}
+
+/* HERO */
+.hero{padding:34px 0;text-align:center;}
+
+.hero-copy h1{
+  font-size:42px;
+  font-weight:900;
+}
+
+.hero-actions{
+  margin-top:20px;
+}
+
+.cta{
+  background:var(--red);
+  color:#fff;
+  padding:15px;
+  display:inline-block;
+  border-radius:12px;
+  font-weight:900;
+}
+
+/* SECTION */
 .section{padding:20px 0;}
-.floating-order{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--red);color:#fff;padding:15px 25px;border-radius:999px;}
+.section h2{color:var(--red);}
+
+/* FLOAT */
+.floating-order{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--red);
+  color:#fff;
+  padding:15px 25px;
+  border-radius:999px;
+  font-weight:900;
+}
 </style>
 </head>
 
@@ -35,7 +117,10 @@ nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-
 
 <nav>
   <div class="container nav-inner">
-    <a href="#"><img src="https://i.imgur.com/djroHbx.png" width="120"></a>
+    <a class="brand" href="#">
+      <img src="https://i.imgur.com/djroHbx.png">
+    </a>
+
     <div class="menu">
       <a href="#about">About</a>
       <a href="#menu">Menu</a>
@@ -46,20 +131,18 @@ nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-
 </nav>
 
 <header class="hero">
-  <div class="container">
+  <div class="container hero-copy">
     <h1>Fresh Fish. Crispy Chicken. Unmatched Flavor.</h1>
-    <p>Fast, fresh, and made to satisfy every craving.</p>
-
-    <a class="cta" href="#order">ORDER ONLINE</a>
+    <div class="hero-actions">
+      <a class="cta" href="#order">ORDER ONLINE</a>
+    </div>
   </div>
 </header>
 
 <section class="section" id="about">
   <div class="container">
     <h2>About Us</h2>
-    <p>
-      Eaters Fish and Chicken delivers bold flavor and high-quality comfort food.
-    </p>
+    <p>Eaters Fish and Chicken delivers bold flavor and high-quality comfort food.</p>
   </div>
 </section>
 
@@ -70,7 +153,7 @@ nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-
   </div>
 </section>
 
-<!-- 🔥 ORDER SECTION (EMBEDDED) -->
+<!-- 🔥 ORDER SECTION WITH YOUR TOAST LINK -->
 <section class="section" id="order">
   <div class="container">
     <h2>Order Online</h2>
@@ -84,7 +167,7 @@ nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-
       margin-top:10px;
     ">
       <iframe 
-        src="https://order.online/store/33057477"
+        src="https://order.toasttab.com/online/donut-palace-huber-5115-old-troy-pike"
         width="100%" 
         height="100%" 
         style="border:none;">
@@ -97,7 +180,10 @@ nav{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-
 <section class="section" id="location">
   <div class="container">
     <h2>Visit Us</h2>
-    <iframe src="https://maps.google.com/maps?q=1304%20S%20Breiel%20Blvd%20Middletown&output=embed" width="100%" height="300"></iframe>
+    <iframe 
+      src="https://maps.google.com/maps?q=1304%20S%20Breiel%20Blvd%20Middletown&output=embed"
+      width="100%" height="300">
+    </iframe>
   </div>
 </section>
 
