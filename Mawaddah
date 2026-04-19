@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مودة - Mawaddah</title>
+
+  <!-- Google Font Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #ffffff;
+      color: #000;
+      line-height: 1.7;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #fff;
+    }
+
+    header img {
+      max-width: 120px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(135deg, #0097b2, #0cc0df);
+      color: #fff;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    .section {
+      padding: 30px 20px;
+    }
+
+    .section h2 {
+      color: #0097b2;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .card {
+      background: #f9f9f9;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      display: block;
+      margin: 5px 0;
+      color: #0097b2;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0097b2;
+      color: #fff;
+    }
+
+    /* Sticky CTA */
+    .cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fbb03b;
+      text-align: center;
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    .cta a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media(min-width:768px) {
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="https://i.imgur.com/9ViWd93.png" alt="logo" />
+</header>
+
+<section class="hero">
+  <h1>مؤسسة مودة</h1>
+  <p>نحو أسرة مستقرة ومجتمع متماسك</p>
+</section>
+
+<section class="section">
+  <h2>من نحن</h2>
+  <p style="text-align:center;">مودة هي مؤسسة غير ربحية تساهم في الاستقرار الأسري للجالية المسلمة في أمريكا من خلال تقديم برامج وخدمات متكاملة.</p>
+</section>
+
+<section class="section">
+  <h2>خدماتنا</h2>
+  <div class="services">
+    <div class="card">دورات تدريبية للآباء والأمهات - التربية الإيجابية ومهارات التواصل</div>
+    <div class="card">دورات للمقبلين على الزواج من الاختيار حتى الاستقرار</div>
+    <div class="card">استشارات أسرية وتربوية</div>
+    <div class="card">إصلاح ذات البين</div>
+    <div class="card">عقود زواج (مأذون شرعي)</div>
+    <div class="card">تصحيح قراءة القرآن للمبتدئين</div>
+    <div class="card">برامج تأهيل الأزواج الجدد</div>
+    <div class="card">ورش عمل في حل النزاعات الأسرية</div>
+  </div>
+</section>
+
+<section class="section contact">
+  <h2>تواصل معنا</h2>
+  <a href="tel:+17086777685">📞 +1 (708) 677-7685</a>
+  <a href="#">📍 5130 W 125th place, Alsip, IL</a>
+  <a href="https://www.facebook.com/profile.php?id=61581167431017" target="_blank">فيسبوك</a>
+  <a href="https://www.instagram.com/mawaddah_usa" target="_blank">إنستغرام</a>
+  <a href="https://www.paypal.com/ncp/payment/J7JBC766KY7S4" target="_blank">تبرع الآن</a>
+</section>
+
+<footer>
+  جميع الحقوق محفوظة © مودة
+</footer>
+
+<div class="cta">
+  <a href="https://calendly.com/" target="_blank">احجز موعد الآن</a>
+</div>
+
+</body>
+</html>
