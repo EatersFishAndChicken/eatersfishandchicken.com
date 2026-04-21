@@ -4,10 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>مودة | مؤسسة للاستقرار الأسري والاستشارات</title>
+  <meta name="description" content="مودة مؤسسة غير ربحية تساهم في الاستقرار الأسري للجالية المسلمة في أمريكا من خلال الاستشارات الأسرية، الدورات التربوية، إصلاح ذات البين، وعقود الزواج.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -22,6 +23,7 @@
       --white:#ffffff;
       --shadow:0 10px 30px rgba(0,0,0,0.08);
       --radius:22px;
+      --border:1px solid rgba(0,151,178,0.08);
     }
 
     *{
@@ -55,12 +57,11 @@
     }
 
     .topbar{
-      position:sticky;
-      top:0;
-      z-index:9999;
-      background:rgba(255,255,255,0.96);
-      backdrop-filter:blur(10px);
-      box-shadow:0 4px 20px rgba(0,0,0,0.08);
+      position:relative;
+      z-index:100;
+      background:rgba(255,255,255,0.98);
+      backdrop-filter:blur(8px);
+      box-shadow:0 4px 20px rgba(0,0,0,0.06);
       border-bottom:1px solid rgba(0,0,0,0.05);
     }
 
@@ -68,8 +69,8 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:16px;
-      padding:12px 0;
+      gap:18px;
+      padding:16px 0;
       flex-wrap:wrap;
     }
 
@@ -81,8 +82,8 @@
     }
 
     .brand img{
-      width:70px;
-      height:70px;
+      width:78px;
+      height:78px;
       object-fit:contain;
       border-radius:18px;
       background:#fff;
@@ -91,14 +92,14 @@
     }
 
     .brand-text h1{
-      font-size:22px;
+      font-size:24px;
       color:var(--primary);
       line-height:1.2;
       font-weight:800;
     }
 
     .brand-text p{
-      font-size:13px;
+      font-size:14px;
       color:var(--muted);
     }
 
@@ -111,15 +112,15 @@
 
     .call-btn,
     .donate-btn,
-    .social-btn,
-    .book-btn{
+    .book-btn,
+    .small-btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:8px;
       border-radius:999px;
       padding:12px 18px;
-      font-weight:700;
+      font-weight:800;
       transition:0.3s ease;
       box-shadow:var(--shadow);
     }
@@ -130,23 +131,32 @@
     }
 
     .donate-btn{
-      background:var(--secondary);
+      background:linear-gradient(135deg,var(--secondary),#ffd36f);
       color:#111;
-      animation:pulse 2s infinite;
+      animation:pulse 2.2s infinite;
     }
 
-    .social-btn{
-      background:#f4f8f9;
+    .small-btn{
+      background:#fff;
       color:var(--primary);
-      width:46px;
-      height:46px;
-      padding:0;
+      border:var(--border);
+    }
+
+    .book-btn.primary{
+      background:var(--primary);
+      color:#fff;
+    }
+
+    .book-btn.secondary{
+      background:#fff;
+      color:var(--primary);
+      border:1px solid rgba(0,151,178,0.15);
     }
 
     .call-btn:hover,
     .donate-btn:hover,
-    .social-btn:hover,
-    .book-btn:hover{
+    .book-btn:hover,
+    .small-btn:hover{
       transform:translateY(-2px);
     }
 
@@ -166,7 +176,7 @@
       position:absolute;
       width:220px;
       height:220px;
-      border:2px solid rgba(0,151,178,0.09);
+      border:2px solid rgba(0,151,178,0.08);
       border-radius:40px;
       transform:rotate(45deg);
       z-index:0;
@@ -232,17 +242,6 @@
       margin-top:25px;
     }
 
-    .book-btn.primary{
-      background:var(--primary);
-      color:#fff;
-    }
-
-    .book-btn.secondary{
-      background:#fff;
-      color:var(--primary);
-      border:1px solid rgba(0,151,178,0.15);
-    }
-
     .hero-card{
       background:#fff;
       border-radius:28px;
@@ -265,7 +264,7 @@
       bottom:18px;
       right:18px;
       left:18px;
-      background:rgba(255,255,255,0.92);
+      background:rgba(255,255,255,0.94);
       backdrop-filter:blur(10px);
       border-radius:18px;
       padding:14px;
@@ -315,8 +314,7 @@
     .about-grid,
     .bio-grid,
     .consult-grid,
-    .map-grid,
-    .image-text-grid{
+    .contact-wrap{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:28px;
@@ -547,13 +545,6 @@
       font-size:16px;
     }
 
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:0.9fr 1.1fr;
-      gap:28px;
-      margin-top:40px;
-    }
-
     .contact-card{
       background:#fff;
       padding:28px;
@@ -577,6 +568,30 @@
       flex-shrink:0;
     }
 
+    .contact-socials{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:15px;
+    }
+
+    .social-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background:#f4f8f9;
+      color:var(--primary);
+      padding:12px 16px;
+      border-radius:999px;
+      font-weight:700;
+      box-shadow:var(--shadow);
+      transition:0.3s ease;
+    }
+
+    .social-link:hover{
+      transform:translateY(-2px);
+    }
+
     .ltr{
       direction:ltr;
       unicode-bidi:embed;
@@ -593,8 +608,16 @@
     .map-box iframe{
       width:100%;
       height:100%;
-      min-height:470px;
+      min-height:520px;
       border:0;
+    }
+
+    .calendly-box{
+      margin-top:35px;
+      background:#fff;
+      border-radius:28px;
+      padding:20px;
+      box-shadow:var(--shadow);
     }
 
     .footer{
@@ -670,21 +693,6 @@
       background-size:100px 100px;
     }
 
-    .section-image-band{
-      margin-top:35px;
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:18px;
-    }
-
-    .section-image-band img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      border-radius:24px;
-      box-shadow:var(--shadow);
-    }
-
     @keyframes pulse{
       0%{transform:scale(1);}
       50%{transform:scale(1.04);}
@@ -711,8 +719,6 @@
       .about-grid,
       .bio-grid,
       .consult-grid,
-      .map-grid,
-      .image-text-grid,
       .contact-wrap,
       .footer-grid{
         grid-template-columns:1fr;
@@ -724,10 +730,6 @@
 
       .stats{
         grid-template-columns:1fr 1fr;
-      }
-
-      .section-image-band{
-        grid-template-columns:1fr;
       }
 
       .hero h2{
@@ -783,8 +785,8 @@
       }
 
       .brand img{
-        width:60px;
-        height:60px;
+        width:64px;
+        height:64px;
       }
 
       .call-btn,
@@ -823,14 +825,6 @@
           <i class="fas fa-hand-holding-heart"></i>
           تبرع الآن
         </a>
-
-        <a class="social-btn" href="https://www.facebook.com/profile.php?id=61581167431017" target="_blank" aria-label="Facebook">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-
-        <a class="social-btn" href="https://www.instagram.com/mawaddah_usa?igsh=cnQ1ODVxajh0Mmt5" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
       </div>
     </div>
   </header>
@@ -854,7 +848,7 @@
         </div>
 
         <div class="hero-buttons">
-          <a class="book-btn primary" href="https://calendly.com/" target="_blank">
+          <a class="book-btn primary" href="https://calendly.com/mawaddahnpo/30min" target="_blank">
             <i class="fas fa-calendar-check"></i>
             احجز استشاره
           </a>
@@ -867,7 +861,7 @@
       </div>
 
       <div class="hero-card fade-up">
-        <img src="https://images.unsplash.com/photo-1519817650390-64a93db51149?auto=format&fit=crop&w=900&q=80" alt="الاستقرار الأسري">
+        <img src="https://modo3.com/thumbs/fit630x300/82573/1693289724/%D8%A3%D9%87%D9%85%D9%8A%D8%A9_%D8%A7%D9%84%D8%A3%D8%B3%D8%B1%D8%A9_%D9%81%D9%8A_%D8%A7%D9%84%D8%A5%D8%B3%D9%84%D8%A7%D9%85.jpg" alt="أهمية الأسرة في الإسلام">
         <div class="floating-card">
           <strong>رسالتنا</strong>
           نساعد الأسرة المسلمة على بناء علاقة صحية بين الزوجين، وحسن تربية الأبناء، ومعالجة الخلافات بروح من الحكمة والسكينة.
@@ -898,10 +892,13 @@
           <p>
             رؤيتنا أن يكون لكل أسرة مسلمة مرجع آمن ومهني ومتفهم، يشعرها أن هناك من يساندها، ويأخذ بيدها، ويقدّر خصوصيتها، ويحترم أسرارها، ويقدّم لها ما ينفعها في دنياها وآخرتها.
           </p>
+          <p>
+            كما نؤمن أن الاستقرار الأسري ليس رفاهية، بل أساس لصلاح الفرد، واستقامة الأبناء، وقوة المجتمع. لذلك نعتبر أن كل جلسة استشارية، وكل كلمة توجيه، وكل إصلاح بين زوجين أو والدين وأبنائهما، هو استثمار حقيقي في مستقبل الأسرة المسلمة.
+          </p>
         </div>
 
         <div class="image-box">
-          <img src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=900&q=80" alt="أسرة مسلمة">
+          <img src="https://aljamaa.com/ar/wp-content/uploads/2026/10/osra.jpg" alt="لماذا أُسست مودة">
         </div>
       </div>
 
@@ -979,12 +976,6 @@
           <p>نهدف إلى تقريب العلم النافع بصورة مبسطة ومحببة.</p>
         </div>
       </div>
-
-      <div class="section-image-band">
-        <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?auto=format&fit=crop&w=900&q=80" alt="التربية والحوار">
-        <img src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=900&q=80" alt="الاستشارات الأسرية">
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=80" alt="الأسرة المسلمة">
-      </div>
     </div>
   </section>
 
@@ -1005,28 +996,70 @@
             في جلسات الاستشارة نعمل على فهم الحالة كاملة، وليس مجرد سماع عنوان المشكلة فقط. ننظر إلى طبيعة العلاقة داخل الأسرة، ونحاول معرفة أسباب التوتر أو القلق أو سوء الفهم أو ضعف التواصل أو تكرار الخلافات. ثم نبدأ بخطوات عملية تساعد على التحسن التدريجي، وتعيد الوضوح والهدوء والاتزان إلى البيت.
           </p>
           <p>
+            تشمل الاستشارات مشكلات الأطفال، وصعوبات التربية، والعناد، وضعف التركيز، والتحديات السلوكية، والتعامل مع المراهقين، إضافة إلى المشكلات الزوجية مثل الخلافات المتكررة، والفتور العاطفي، والغيرة، والانفعال، وتراكم سوء الفهم، وضعف الحوار، وعدم القدرة على الوصول إلى نقطة مشتركة بين الطرفين.
+          </p>
           <p>
-            نحن لا نكتفي بإعطاء نصائح عامة، بل نعمل على تحليل الحالة بشكل عميق، وفهم طبيعة كل فرد داخل الأسرة، ثم تقديم توجيه عملي يساعدك على تحسين العلاقة مع نفسك ومع من حولك.
+            نحن لا نكتفي بإعطاء نصائح عامة، بل نعمل على تحليل الحالة بشكل عميق، وفهم طبيعة كل فرد داخل الأسرة، ثم تقديم توجيه عملي يساعدك على تحسين العلاقة مع نفسك ومع من حولك. كما نساعدك على إعادة بناء الثقة داخل بيتك، ووضع خطوات عملية تحافظ على الاستقرار وتمنع تكرار الأخطاء.
+          </p>
+          <p>
+            هذه الاستشارات مفيدة للوالدين، وللأزواج والزوجات، ولمن يمرون بمرحلة حساسة داخل أسرهم، أو يشعرون أن المشكلات بدأت تتوسع وتحتاج إلى تدخل واعٍ ومتزن. ونؤمن أن كل أسرة تستحق من يُنصت لها، ويُقدّر ظرفها، ويمنحها مساحة آمنة للحديث والحل.
           </p>
 
           <div class="quote-box">
             الاستشارة ليست ضعفًا، بل وعي… وطلب المساعدة هو أول خطوة نحو التغيير الحقيقي داخل حياتك.
           </div>
 
-          <a class="book-btn primary" href="https://calendly.com/" target="_blank">
-            <i class="fas fa-calendar-check"></i>
-            احجز استشاره الآن
-          </a>
+          <div class="hero-buttons">
+            <a class="book-btn primary" href="https://calendly.com/mawaddahnpo/30min" target="_blank">
+              <i class="fas fa-calendar-check"></i>
+              احجز استشاره الآن
+            </a>
+          </div>
         </div>
 
         <div class="image-box">
-          <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=900&q=80">
+          <img src="https://static.arrajol.com/styles/693x433/public/2023-03/%D8%B1%D8%AC%D9%84-%D9%8A%D9%82%D8%B1%D8%A3-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85%20%281%29.jpg" alt="ماذا تشمل الاستشارة">
         </div>
+      </div>
+
+      <div class="consult-banner">
+        <h4>لماذا تختار الاستشارة معنا؟</h4>
+        <p>
+          لأننا لا نقدّم حلولًا عامة أو كلامًا نظريًا فقط، بل نعمل على فهم حالتك بشكل دقيق، ونمنحك خطوات عملية تساعدك على التغيير الحقيقي داخل حياتك، مع مراعاة خصوصيتك وواقعك الأسري وطبيعة التحديات التي تمر بها.
+        </p>
+
+        <div class="consult-list">
+          <div class="consult-item">
+            <i class="fas fa-check-circle"></i>
+            <div>فهم عميق للمشكلة وليس سطحياً</div>
+          </div>
+
+          <div class="consult-item">
+            <i class="fas fa-check-circle"></i>
+            <div>حلول عملية قابلة للتطبيق</div>
+          </div>
+
+          <div class="consult-item">
+            <i class="fas fa-check-circle"></i>
+            <div>سرية تامة واحترام كامل لخصوصيتك</div>
+          </div>
+
+          <div class="consult-item">
+            <i class="fas fa-check-circle"></i>
+            <div>متابعة وتوجيه مستمر</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calendly-box">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/mawaddahnpo/30min?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=0097b2" style="min-width:320px;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
       </div>
     </div>
   </section>
 
-  <!-- BIO SECTION -->
   <section class="section wide-section">
     <div class="container">
       <div class="section-title">
@@ -1036,7 +1069,7 @@
 
       <div class="bio-grid">
         <div class="image-box">
-          <img src="https://i.imgur.com/FxwSA6o.png">
+          <img src="https://i.imgur.com/FxwSA6o.png" alt="الشيخ عازم عبدالرحمن أبو البراء">
         </div>
 
         <div class="text-box">
@@ -1047,7 +1080,7 @@
           </p>
 
           <p>
-            يتميز بأسلوبه الهادئ والمتزن، وقدرته على الاستماع العميق وفهم المشكلات من جذورها، ثم تقديم حلول عملية قابلة للتطبيق بعيدًا عن التعقيد أو المثالية الزائدة.
+            يتميز بأسلوبه الهادئ والمتزن، وقدرته على الاستماع العميق وفهم المشكلات من جذورها، ثم تقديم حلول عملية قابلة للتطبيق بعيدًا عن التعقيد أو المثالية الزائدة. وقد ساعدت خبرته الطويلة في العلاقات الاستشارية على التعامل مع حالات متنوعة ومتشعبة، مما جعله أكثر قدرة على فهم طبيعة المشكلات الأسرية والتربوية والزوجية.
           </p>
 
           <div class="bio-badges">
@@ -1055,21 +1088,25 @@
             <div class="bio-badge">إصلاح ذات البين</div>
             <div class="bio-badge">توجيه أسري وتربوي</div>
             <div class="bio-badge">تأهيل المقبلين على الزواج</div>
+            <div class="bio-badge">شهادات وخبرة مهنية</div>
           </div>
 
           <p>
-            عمل الشيخ مع مئات الحالات المختلفة، مما أكسبه خبرة عملية واسعة في التعامل مع التحديات الواقعية التي تواجه الأسرة المسلمة، سواء في العلاقات الزوجية، أو تربية الأبناء، أو التعامل مع الضغوط النفسية والاجتماعية.
+            يمتلك الشيخ رصيدًا من الشهادات والخبرة الطويلة في العلاقات الاستشارية، إضافة إلى ممارسة عملية مباشرة مع عدد كبير من الحالات، وهو ما ينعكس على جودة الطرح، وعمق الفهم، ووضوح الحلول المقترحة. وقد عمل مع أسر كثيرة تمرّ بمراحل حساسة تحتاج إلى توجيه يجمع بين الرفق والوضوح والحكمة.
           </p>
 
           <p>
-            هدفه الأساسي هو مساعدة الناس على الوصول إلى الاستقرار الداخلي والأسري، وبناء علاقات قائمة على الرحمة والتفاهم والوعي.
+            عمل الشيخ مع مئات الحالات المختلفة، مما أكسبه خبرة عملية واسعة في التعامل مع التحديات الواقعية التي تواجه الأسرة المسلمة، سواء في العلاقات الزوجية، أو تربية الأبناء، أو التعامل مع الضغوط النفسية والاجتماعية. كما يركّز في طرحه على بناء الاستقرار الداخلي، وتحقيق التفاهم، وتقوية الروابط الأسرية على أسس سليمة.
+          </p>
+
+          <p>
+            هدفه الأساسي هو مساعدة الناس على الوصول إلى الاستقرار الداخلي والأسري، وبناء علاقات قائمة على الرحمة والتفاهم والوعي، وتمكين الأسرة من تجاوز أزماتها بصورة تحفظ كرامتها وتعيد لها طمأنينتها.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
   <section class="section">
     <div class="container">
       <div class="section-title">
@@ -1080,23 +1117,27 @@
       <div class="faq">
         <div class="faq-item">
           <h4>هل الاستشارة سرية؟</h4>
-          <p>نعم، جميع الجلسات تتم بسرية تامة واحترام كامل لخصوصيتك.</p>
+          <p>نعم، جميع الجلسات تتم بسرية تامة واحترام كامل لخصوصيتك، ويتم التعامل مع كل حالة بحساسية ومهنية عالية.</p>
         </div>
 
         <div class="faq-item">
           <h4>كم مدة الجلسة؟</h4>
-          <p>مدة الجلسة تختلف حسب الحالة، لكنها غالبًا تكون بين 45 إلى 60 دقيقة.</p>
+          <p>مدة الجلسة غالبًا تكون 30 دقيقة أو أكثر بحسب نوع الموعد، ويمكن ترتيب جلسات لاحقة عند الحاجة لمتابعة الحالة.</p>
         </div>
 
         <div class="faq-item">
           <h4>هل يمكن متابعة الحالة؟</h4>
-          <p>نعم، يمكن متابعة الحالة بجلسات إضافية حسب الحاجة.</p>
+          <p>نعم، يمكن متابعة الحالة بجلسات إضافية منظمة تساعد على ترسيخ التغيير وتحقيق نتائج أفضل بصورة تدريجية.</p>
+        </div>
+
+        <div class="faq-item">
+          <h4>هل الاستشارات مناسبة فقط للمشكلات الكبيرة؟</h4>
+          <p>لا، بل حتى المشكلات البسيطة في بدايتها تستحق الاهتمام، لأن معالجتها مبكرًا يمنع تفاقمها ويحفظ للأسرة استقرارها.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT + MAP -->
   <section class="section wide-section">
     <div class="container">
       <div class="section-title">
@@ -1119,7 +1160,7 @@
             <div class="icon"><i class="fas fa-location-dot"></i></div>
             <div>
               <strong>العنوان</strong><br>
-              5130 W 125th place, Alsip, IL 60803
+              <span class="ltr">5130 W 125th place, Alsip, IL 60803</span>
             </div>
           </div>
 
@@ -1127,14 +1168,26 @@
             <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
             <div>
               <strong>الدعم والتبرع</strong><br>
-              يمكنك دعم رسالتنا عبر التبرع
+              يمكنك دعم رسالتنا عبر التبرع والمساهمة في استمرار هذه الخدمات النافعة للأسر.
             </div>
           </div>
 
           <a class="donate-btn" href="https://www.paypal.com/ncp/payment/J7JBC766KY7S4" target="_blank">
+            <i class="fas fa-hand-holding-heart"></i>
             تبرع الآن
           </a>
 
+          <div class="contact-socials">
+            <a class="social-link" href="https://www.facebook.com/profile.php?id=61581167431017" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+              فيسبوك
+            </a>
+
+            <a class="social-link" href="https://www.instagram.com/mawaddah_usa?igsh=cnQ1ODVxajh0Mmt5" target="_blank">
+              <i class="fab fa-instagram"></i>
+              إنستغرام
+            </a>
+          </div>
         </div>
 
         <div class="map-box">
@@ -1144,14 +1197,13 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container footer-grid">
 
       <div>
         <h4>عن مودة</h4>
         <p>
-          مؤسسة مودة تهدف إلى بناء أسر مستقرة وواعية من خلال الاستشارات والدورات والإصلاح بين الناس، وفق منهج متوازن يجمع بين القيم الإسلامية والواقع المعاصر.
+          مؤسسة مودة تهدف إلى بناء أسر مستقرة وواعية من خلال الاستشارات والدورات والإصلاح بين الناس، وفق منهج متوازن يجمع بين القيم الإسلامية والواقع المعاصر. نؤمن أن الأسرة القوية هي أساس المجتمع القوي، وأن التوجيه الصحيح في الوقت المناسب قد يصنع فرقًا كبيرًا في حياة الناس.
         </p>
       </div>
 
@@ -1160,13 +1212,16 @@
         <ul>
           <li><a href="#services">الخدمات</a></li>
           <li><a href="#consultation">الاستشارات</a></li>
-          <li><a href="https://calendly.com/">حجز استشارة</a></li>
+          <li><a href="https://calendly.com/mawaddahnpo/30min" target="_blank">حجز استشارة</a></li>
+          <li><a href="https://www.paypal.com/ncp/payment/J7JBC766KY7S4" target="_blank">التبرع</a></li>
         </ul>
       </div>
 
       <div>
-        <h4>تابعنا</h4>
-        <p>تابعنا على وسائل التواصل الاجتماعي لمعرفة آخر البرامج والدورات.</p>
+        <h4>تواصل دائم</h4>
+        <p>
+          تابع نشاطات المؤسسة وبرامجها وموادها التوعوية، وكن قريبًا من كل ما نقدمه من محتوى نافع يخدم الأسرة ويرفع مستوى الوعي داخل المجتمع المسلم.
+        </p>
       </div>
 
     </div>
@@ -1176,14 +1231,12 @@
     </div>
   </footer>
 
-  <!-- STICKY CTA -->
   <div class="sticky-bottom">
-    <a href="https://calendly.com/" target="_blank">
+    <a href="https://calendly.com/mawaddahnpo/30min" target="_blank">
+      <i class="fas fa-calendar-check"></i>
       احجز استشاره الآن
     </a>
   </div>
 
 </body>
 </html>
-            
-           
